@@ -5,7 +5,8 @@ MM			:= ./memory_manager_2
 
 LIBS	:= $(FTPRINTF)/libftprintf.a $(MM)/memory_mng.a
 SRCS	:= push_swap.c \
-			list.c
+			list.c \
+			operation.c
 OBJS	:= $(SRCS:.c=.o)
 CC 		= gcc $(CFLAGS)
 

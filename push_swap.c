@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/02/28 18:30:36 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/01 17:02:39 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,14 @@ int	argv_checker(char *argv)
 	int	i;
 
 	i = 0;
+	if(argv[0] == '-' && argv[1] == 0)
+		return(0);
 	while (argv[i])
 	{
-		if (argv[i] < '0' || argv[i] > '9')
-			return (0);
+		if(i == 0 && argv[i] == '-')
+			i++;
+		if ((argv[i] < '0' || argv[i] > '9'))
+			return (0);	
 		i++;
 	}
 	return (1);
@@ -42,12 +46,25 @@ int	argv_checker(char *argv)
 
 void	read_list(t_list *start_a)
 {
+	t_list *current = start_a;
+    while (current != NULL)
+    {
+        printf("\033[0;36mMaillon address: \033[0;33m%p\033[0m\n", (void *)current);
+        printf("\033[0;36mContent: \033[0;35m%d\033[0m\n", current->content);
+        printf("\033[0;36mLast address: \033[0;33m%p\033[0m\n", (void *)current->last);
+		printf("\033[0;36mNext address: \033[0;33m%p\033[0m\n", (void *)current->next);
+        printf("\033[0;31m-------\033[0m\n");
+        current = current->next;
+    }
+}
+void	read_list_back(t_list *start_a)
+{
 	t_list	*temp;
 
 	temp = ft_lstlast(start_a);
 	while (temp)
 	{
-		ft_printf("%d\n", temp->content);
+		ft_printf("-------%d\n", temp->content);
 		temp = temp->last;
 	}
 }
@@ -77,6 +94,10 @@ int	main(int argc, char **argv)
 		return (0);
 	else
 		while (++i < argc)
-			check_n_create(&start_a, argv[i]);
+			if(check_n_create(&start_a, argv[i]) == 0)
+				return (0);
+	read_list(start_a);
+	ft_sa(&start_a);
+	ft_printf("\n\033[0;32m////--- AFTER ---\\\\\\\\ \n\n");
 	read_list(start_a);
 }

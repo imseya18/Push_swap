@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/02/28 18:28:42 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/01 17:02:37 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ void	read_list(t_list *start);
 int		argv_checker(char *argv);
 int		create_a_stack(t_list **start, int a);
 int		ft_lstsize(t_list *lst);
+int		ft_sa(t_list **start_a);
 #endif
