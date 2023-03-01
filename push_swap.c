@@ -6,65 +6,77 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/02/27 18:00:11 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/02/28 18:30:36 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"
-void	create_a_stack(t_list **start, int a)
+
+int	create_a_stack(t_list **start_a, int a)
 {
 	t_list	*new;
 
 	new = ft_lstnew(a);
 	if (new == 0)
 	{
-											//gerer cas erreurs 
+		ftm_free_all();
+		return (0);
 	}
-	ft_lstadd_back(start, new);
+	ft_lstadd_back(start_a, new);
+	return (1);
 }
-int argv_checker(char *argv)
+
+int	argv_checker(char *argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (argv[i])
 	{
-		if(argv[i] < '0' || argv[i] > '9')
+		if (argv[i] < '0' || argv[i] > '9')
 			return (0);
 		i++;
 	}
 	return (1);
 }
-void read_list(t_list *start)
+
+void	read_list(t_list *start_a)
 {
-	while(start)
+	t_list	*temp;
+
+	temp = ft_lstlast(start_a);
+	while (temp)
 	{
-		printf("%d\n", start->content);
-		start = start->next;
+		ft_printf("%d\n", temp->content);
+		temp = temp->last;
 	}
 }
+
+int	check_n_create(t_list **start_a, char *argv)
+{
+	if (argv_checker(argv) == 0)
+	{
+		ftm_free_all();
+		return (0);
+	}
+	if (create_a_stack(start_a, ft_atoi(argv)) == 0)
+		return (0);
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
-	int i;
-	t_list	*start;
-	int temp;
-	
-	start = 0;
+	int		i;
+	t_list	*start_a;
+	t_list	*start_b;
+
+	start_a = 0;
+	start_b = 0;
 	i = 0;
-	temp = 0;
 	if (argc < 2)
 		return (0);
 	else
-	{
-		while(++i < argc)
-		{
-			if (argv_checker(argv[i]) == 0)
-				return (0);
-		}		
-		i = 0;
 		while (++i < argc)
-			create_a_stack(&start, ft_atoi(argv[i]));
-	}
-	read_list(start);
+			check_n_create(&start_a, argv[i]);
+	read_list(start_a);
 }
