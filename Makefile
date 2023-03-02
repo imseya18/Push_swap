@@ -1,5 +1,5 @@
 NAME		:= push_swap
-CFLAGS		:= -Wextra -Wall -Werror -g 
+CFLAGS		:= -Wextra -Wall -Werror -fsanitize=address -g
 FTPRINTF	:= ./printf
 MM			:= ./memory_manager_2
 

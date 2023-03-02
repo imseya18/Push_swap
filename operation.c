@@ -6,21 +6,56 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:13:17 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/01 17:02:36 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/02 18:04:56 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sa(t_list **start_a)
+int ft_pa_pb(t_list **main, t_list **target)
 {
-	t_list	*second_m;
+	t_list *first_m;
+
+	if (*main == NULL)
+		return(0);
+	first_m = *main;
+	if(first_m->next)
+	{
+		first_m->next->last = NULL;
+		*main = first_m->next;
+	}
+	else
+		*main = NULL;
+	ft_lstadd_front(target, first_m);
+
+
+	return (0);
+	//if (first_m->next == NULL)
+	//	*main = NULL;
+	//else
+	//{
+	//	*main = first_m->next;
+	//	first_m->next->last = NULL;
+	//}
+	//if (*target == NULL)
+	//{
+	//	*target = first_m;
+	//	first_m->next = NULL;
+	//	first_m->last = NULL;
+	//}
+	//else
+
+}
+
+int	ft_sa_sb(t_list **stack)
+{
 	t_list	*first_m;
+	t_list	*second_m;
 	t_list	*third_m;
 
-	if(*start_a == NULL)
+	if(*stack == NULL)
 		return (0);
-	first_m = *start_a;
+	first_m = *stack;
 	if (first_m->next == NULL)
 		return (0);
 	second_m = first_m->next;
@@ -31,6 +66,64 @@ int	ft_sa(t_list **start_a)
 	if (third_m)
 		third_m->last = first_m;
 	first_m->next = third_m;
-	*start_a = second_m;
+	*stack = second_m;
+	return (1);
+}
+
+int ft_ra_rb(t_list **stack)
+{
+	t_list *first_m;
+	t_list *last_m;
+
+	if(*stack == NULL)
+		return (0);
+	first_m = *stack;
+	if (first_m->next == NULL)
+		return (0);
+	last_m = ft_lstlast(*stack);
+	//if (last_m->last->last)
+	//{
+	//	last_m->last->next = first_m;	
+	//	first_m->next->last = last_m;
+	//	first_m->last = last_m->last;
+	//	last_m->next = first_m->next;
+	//	first_m->next = NULL;
+	//	last_m->last = NULL;
+	//	*stack = last_m;
+	//}
+	if (last_m->last->last)
+	{
+		*stack = first_m->next;
+		first_m->next->last = NULL;
+		first_m->next = NULL;
+		first_m->last = last_m;
+		last_m->next = first_m;
+	}
+	else
+		ft_sa_sb(stack);
+	return (1);
+}
+
+int ft_rra_rrb(t_list **stack)
+{
+	t_list *first_m;
+	t_list *last_m;
+
+	if (*stack == NULL)
+		return (0);
+	first_m = *stack;
+	if (first_m->next == NULL)
+		return (0);
+	last_m = ft_lstlast(*stack);
+	if (last_m->last->last)
+	{
+		*stack = last_m;
+		last_m->last->next = NULL;
+		last_m->last = NULL;
+		last_m->next = first_m;
+		first_m->last = last_m;
+	}
+	else
+		ft_sa_sb(stack);
 	return (1);
 }

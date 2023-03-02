@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/01 17:02:39 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/02 18:04:58 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,18 @@ int	main(int argc, char **argv)
 		while (++i < argc)
 			if(check_n_create(&start_a, argv[i]) == 0)
 				return (0);
+	ft_printf("\n\033[0;32m////--- STACK A ---\\\\\\\\ \n\n");
 	read_list(start_a);
-	ft_sa(&start_a);
+	ft_printf("\n\033[0;32m////--- STACK B ---\\\\\\\\ \n\n");
+	read_list(start_b);
+	ft_sa_sb(&start_a);
+	ft_ra_rb(&start_a);
+	ft_rra_rrb(&start_a);
+	ft_pa_pb(&start_a, &start_b);
+	ft_pa_pb(&start_b, &start_a);
 	ft_printf("\n\033[0;32m////--- AFTER ---\\\\\\\\ \n\n");
+	ft_printf("\n\033[0;32m////--- STACK A ---\\\\\\\\ \n\n");
 	read_list(start_a);
+	ft_printf("\n\033[0;32m////--- STACK B ---\\\\\\\\ \n\n");
+	read_list(start_b);
 }
