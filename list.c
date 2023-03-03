@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:35:58 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/02 18:04:57 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/03 15:50:54 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	temp->next = new;
 	new->last = temp;
 }
+
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {	
+	t_list	*temp;
+
+	temp = *lst;
 	if (new == 0)
 		return ;
 	if (*lst == 0)
@@ -49,7 +53,10 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		return ;
 	}
 	else
+	{
+		temp->last = new;
 		new->next = *lst;
+	}
 	new->last = NULL;
 	*lst = new;
 }
