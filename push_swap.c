@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/03 15:50:53 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/07 15:49:34 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,18 @@
 int	create_a_stack(t_list **start_a, int a)
 {
 	t_list	*new;
+	t_list	*temp;
 
+	temp = *start_a;
 	new = ft_lstnew(a);
 	if (new == 0)
 		return (0);
+	while (temp)
+	{
+		if (temp->content == a)
+			return (0);
+		temp = temp->next;
+	}
 	ft_lstadd_back(start_a, new);
 	return (1);
 }
@@ -91,9 +99,20 @@ void	read_list(t_list *start_a, t_list *start_b)
     }
 }
 
+int ft_int_checker(long long a)
+{
+	if (a > 2147483647)
+		return (0);
+	if (a < -2147483648)
+		return (0);
+	return (1);
+}
+
 int	check_n_create(t_list **start_a, char *argv)
 {
 	if (argv_checker(argv) == 0)
+		return (0);
+	if (ft_int_checker(ft_atoi(argv)) == 0)
 		return (0);
 	if (create_a_stack(start_a, ft_atoi(argv)) == 0)
 		return (0);

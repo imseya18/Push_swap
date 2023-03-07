@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 13:36:59 by mmorue            #+#    #+#             */
-/*   Updated: 2022/11/08 17:24:53 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/07 15:49:36 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 //#include <stdlib.h>
 //#include <stdio.h>
 
-static int	calcul(const char *str, int i, int k)
+static long long	calcul(const char *str, int i, int k)
 {	
-	int	res;
+	long long	res;
 
 	res = 0;
 	while (str[i] >= 48 && str[i] <= 57)
@@ -29,7 +29,7 @@ static int	calcul(const char *str, int i, int k)
 	return (res);
 }
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	int	i;
 	int	k;

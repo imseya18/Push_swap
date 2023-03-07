@@ -25,11 +25,11 @@ $(NAME): $(SRCS) $(OBJS)
 clean:
 	@rm -f $(OBJS)
 	@$(MAKE) -C $(FTPRINTF) clean
-	@$(MAKE) -C $(MM)
+	@$(MAKE) -C $(MM) clean
 
 fclean: clean
 	@rm -f $(NAME)
 	@$(MAKE) -C $(FTPRINTF) fclean
-	@$(MAKE) -C $(MM)
+	@$(MAKE) -C $(MM) fclean
 
 re: clean all

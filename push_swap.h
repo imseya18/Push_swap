@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/03 15:50:58 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/07 15:50:00 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_rrr(t_list**stack_a, t_list **stack_b);
 int		ft_pa_pb(t_list **main, t_list **target);
 
 // FONCTION CREATION & CHECK LISTE
+int		ft_int_checker(long long a);
 int		check_n_create(t_list **start_a, char *argv);
 void	read_list(t_list *start, t_list *start_b);
 int		argv_checker(char *argv);
