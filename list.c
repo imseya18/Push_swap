@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:35:58 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/07 15:49:38 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:09:11 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*ft_lstnew(int content)
 	if (!new)
 		return (0);
 	new->content = content;
+	new->rank = 0;
 	new->next = NULL;
 	new->last = NULL;
 	return (new);

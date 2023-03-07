@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/07 15:49:34 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:09:01 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,14 @@ void	read_list(t_list *start_a, t_list *start_b)
 		if (current_b != NULL)
 			printf("\033[0;36mContent: \033[0;35m%d\033[0m\n", current_b->content);
 		if (current)
+        	printf("\033[0;36mrank: \033[0;35m%d\033[0m					", current->rank);
+		if (current == NULL)
+			printf("						");
+		if (current_b == NULL)
+			printf("\n");
+		if (current_b != NULL)
+			printf("\033[0;rank: \033[0;35m%d\033[0m\n", current_b->rank);
+		if (current)
      		printf("\033[0;36mLast address: \033[0;33m%p\033[0m				", (void *)current->last);
 		if (current == NULL)
 			printf("						");
@@ -119,6 +127,66 @@ int	check_n_create(t_list **start_a, char *argv)
 	return (1);
 }
 
+int *ft_quicksort(int *tab, int i)
+{
+	int pos;
+	int temp;
+	int k;
+
+	temp = 0;
+	k = 0;
+	while(k < i)
+	{
+		pos = 0;
+		while(pos + 1 < i)
+		{
+			if(tab[pos] > tab[pos + 1])
+			{
+				temp = tab[pos];
+				tab[pos] = tab[pos + 1];
+				tab[pos + 1] = temp;
+				pos = 0;
+			}
+			pos++;
+		}
+		k++;
+	}
+	return (tab);
+}
+void ft_assign_rank(t_list *start_a, int *tab)
+{
+	int i;
+
+	i = 0;
+	while(start_a)
+	{
+		while(tab[i] != start_a->content)
+			i++;
+		start_a->rank = i;
+		i = 0;
+		start_a = start_a->next;
+	}
+}
+
+void ft_fill_tab(t_list *start_a)
+{
+	int i;
+	int *tab;
+	t_list *temp;
+
+	i = 0;
+	tab = ftm_malloc(ft_lstsize(start_a) * sizeof(int));
+	temp = start_a;
+	while(temp)
+	{
+		tab[i] = temp->content;
+		i++;
+		temp = temp->next;
+	}
+	tab = ft_quicksort(tab,i);
+	ft_assign_rank(start_a, tab);
+}
+
 int	main(int argc, char **argv)
 {
 	int		i;
@@ -134,6 +202,7 @@ int	main(int argc, char **argv)
 		while (++i < argc)
 			if (check_n_create(&start_a, argv[i]) == 0)
 				ft_error();
+	ft_fill_tab(start_a);
 	read_list(start_a, start_b);
 	ft_printf("\n\033[0;32m////--- AFTER ---\\\\\\\\ \n\n");
 	read_list(start_a, start_b);

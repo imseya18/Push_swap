@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/07 15:50:00 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:09:03 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				rank;
 	struct s_list	*next;
 	struct s_list	*last;
 }	t_list;
