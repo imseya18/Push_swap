@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/07 18:09:01 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:57:47 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,31 +127,41 @@ int	check_n_create(t_list **start_a, char *argv)
 	return (1);
 }
 
-int *ft_quicksort(int *tab, int i)
+void ft_swap(int *a, int *b)
 {
-	int pos;
 	int temp;
-	int k;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+int *ft_quicksort(int *tab, int end, int start, int size)
+{
+
+	int i;
+	int j;
+	int temp;
 
 	temp = 0;
-	k = 0;
-	while(k < i)
+	i = start;
+	j = start;
+	if(start < end && j < size)
 	{
-		pos = 0;
-		while(pos + 1 < i)
+		while(j < end)
 		{
-			if(tab[pos] > tab[pos + 1])
+			if(tab[j] < tab[end])
 			{
-				temp = tab[pos];
-				tab[pos] = tab[pos + 1];
-				tab[pos + 1] = temp;
-				pos = 0;
+				ft_swap(&tab[i], &tab[j]);
+				i++;
 			}
-			pos++;
+			j++;
 		}
-		k++;
+		ft_swap(&tab[i], &tab[end]);
+		ft_quicksort(tab, i - 1, start, size);
+		ft_quicksort(tab, end, i + 1, size);
 	}
-	return (tab);
+	return(tab);
 }
 void ft_assign_rank(t_list *start_a, int *tab)
 {
@@ -183,7 +193,7 @@ void ft_fill_tab(t_list *start_a)
 		i++;
 		temp = temp->next;
 	}
-	tab = ft_quicksort(tab,i);
+	tab = ft_quicksort(tab, i - 1, 0, i);
 	ft_assign_rank(start_a, tab);
 }
 
