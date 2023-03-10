@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/07 18:09:03 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/10 16:50:07 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 
 // FONCTION OPERATION
-int		ft_sa_sb(t_list **stack);
-int		ft_ra_rb(t_list **stack);
-int		ft_rra_rrb(t_list **stack);
+int		ft_sa_sb(t_list **stack, int flag);
+int		ft_ra_rb(t_list **stack, int flag);
+int		ft_rra_rrb(t_list **stack, int flag);
 void	ss(t_list **stack_a, t_list **stack_b);
 void	ft_rr(t_list **stack_a, t_list **stack_b);
 void	ft_rrr(t_list**stack_a, t_list **stack_b);
-int		ft_pa_pb(t_list **main, t_list **target);
+int		ft_pa_pb(t_list **main, t_list **target, int flag);
 
 // FONCTION CREATION & CHECK LISTE
 int		ft_int_checker(long long a);
