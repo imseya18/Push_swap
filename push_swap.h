@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/10 16:50:07 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/13 14:27:27 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,20 @@ int		ft_pa_pb(t_list **main, t_list **target, int flag);
 
 // FONCTION CREATION & CHECK LISTE
 int		ft_int_checker(long long a);
-int		check_n_create(t_list **start_a, char *argv);
+int		check_n_create(t_list **start_a, char **argv);
 void	read_list(t_list *start, t_list *start_b);
 int		argv_checker(char *argv);
 int		create_a_stack(t_list **start, int a);
 
 //	FONCTION ERROR
 void	ft_error(void);
+
+// PRE SORT & RANK
+void ft_swap(int *a, int *b);
+int *ft_quicksort(int *tab, int end, int start, int size);
+void ft_assign_rank(t_list *start_a, int *tab);
+void ft_fill_tab(t_list *start_a);
+
+// DELETE
+void	read_list(t_list *start_a, t_list *start_b);
 #endif

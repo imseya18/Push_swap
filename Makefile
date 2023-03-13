@@ -7,7 +7,9 @@ LIBS	:= $(FTPRINTF)/libftprintf.a $(MM)/memory_mng.a
 SRCS	:= push_swap.c \
 			list.c \
 			operation.c \
-			operation_2.c
+			operation_2.c \
+			to_delete.c \
+			pre_sort_rank.c
 OBJS	:= $(SRCS:.c=.o)
 CC 		= gcc $(CFLAGS)
 

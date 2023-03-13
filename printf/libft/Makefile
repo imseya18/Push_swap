@@ -4,6 +4,7 @@ SOURCES =   ft_atoi.c \
 			ft_strdup.c \
 			ft_strlen.c \
 			ft_itoa.c \
+			ft_split.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
