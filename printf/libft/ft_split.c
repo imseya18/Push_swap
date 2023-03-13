@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:31:38 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/13 14:27:48 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/13 17:32:28 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,18 +120,3 @@ char	**ft_split(char const *str, char c)
 		return (0);
 	return (fill_tab(tab, str, c));
 }
-
-//int	main(void)
-//{	
-//	int	i;
-//	char c;
-//
-//	c = ' ';
-//	i = 0;
-//	char	tab[] = " sa  ass a solol";
-//
-//	char	**balek = ft_split(tab, c);
-//	while (balek[i])
-//	printf("%s\n",balek[i++]);
-//	return (0);
-//}

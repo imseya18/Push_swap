@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/13 14:27:27 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/13 17:29:55 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,17 @@ int		create_a_stack(t_list **start, int a);
 void	ft_error(void);
 
 // PRE SORT & RANK
-void ft_swap(int *a, int *b);
-int *ft_quicksort(int *tab, int end, int start, int size);
-void ft_assign_rank(t_list *start_a, int *tab);
-void ft_fill_tab(t_list *start_a);
+void	ft_swap(int *a, int *b);
+int		*ft_quicksort(int *tab, int end, int start, int size);
+void	ft_assign_rank(t_list *start_a, int *tab);
+void	ft_fill_tab(t_list *start_a);
+
+// RADIX SORT
+void	ft_radix_sort(t_list **start_a, t_list **start_b);
+void	sort_big_stack(t_list **start_a, t_list **start_b);
+void	sort_small_stack(t_list **start_a, t_list **start_b);
+int		ft_check_nbr(int nbr, int n);
 
 // DELETE
-void	read_list(t_list *start_a, t_list *start_b);
+//void	read_list(t_list *start_a, t_list *start_b);
 #endif

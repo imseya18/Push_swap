@@ -1,5 +1,5 @@
 NAME		:= push_swap
-CFLAGS		:= -Wextra -Wall -Werror -g
+CFLAGS		:= -Wextra -Wall -Werror -g -fsanitize=address
 FTPRINTF	:= ./printf
 MM			:= ./memory_manager_2
 
@@ -9,7 +9,8 @@ SRCS	:= push_swap.c \
 			operation.c \
 			operation_2.c \
 			to_delete.c \
-			pre_sort_rank.c
+			pre_sort_rank.c \
+			radix_sort.c
 OBJS	:= $(SRCS:.c=.o)
 CC 		= gcc $(CFLAGS)
 

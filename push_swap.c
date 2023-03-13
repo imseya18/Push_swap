@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/13 14:27:16 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/13 17:29:46 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	argv_checker(char *argv)
 	return (1);
 }
 
-int ft_int_checker(long long a)
+int	ft_int_checker(long long a)
 {
 	if (a > 2147483647)
 		return (0);
@@ -60,10 +60,10 @@ int ft_int_checker(long long a)
 
 int	check_n_create(t_list **start_a, char **argv)
 {
-	int i;
+	int	i;
 
 	i = -1;
-	while(argv[++i])
+	while (argv[++i])
 	{
 		if (argv_checker(argv[i]) == 0)
 			return (0);
@@ -92,7 +92,9 @@ int	main(int argc, char **argv)
 				ft_error();
 	ft_fill_tab(start_a);
 	read_list(start_a, start_b);
-	ft_printf("\n\033[0;32m////--- AFTER ---\\\\\\\\ \n\n");
+	printf("\n\033[0;32m////--- AFTER ---\\\\\\\\ \n\n");
+	//ft_pa_pb(&start_a, &start_b, 0);
+	ft_radix_sort(&start_a, &start_b);
 	read_list(start_a, start_b);
 	ftm_free_all();
 	exit (1);

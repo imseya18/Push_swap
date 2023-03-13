@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:13:17 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/10 16:50:08 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/13 17:29:56 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ int	ft_pa_pb(t_list **main, t_list **target, int flag)
 	else
 		*main = NULL;
 	ft_lstadd_front(target, first_m);
-	if (flag == 0)
-		printf("pb\n");
-	if (flag == 1)
-		printf("pa\n");
+	flag = 0;				//delete quand remise des flags
+	//if (flag == 0)
+	//	printf("pb\n");
+	//if (flag == 1)
+	//	printf("pa\n");
 	return (1);
 }
 
@@ -54,10 +55,11 @@ int	ft_sa_sb(t_list **stack, int flag)
 		third_m->last = first_m;
 	first_m->next = third_m;
 	*stack = second_m;
-	if (flag == 0)
-		printf("sa\n");
-	if (flag == 1)
-		printf("sb\n");
+	flag = 0;				//delete quand remise des flags
+	//if (flag == 0)
+	//	printf("sa\n");
+	//if (flag == 1)
+	//	printf("sb\n");
 	return (1);
 }
 
@@ -79,10 +81,11 @@ int	ft_ra_rb(t_list **stack, int flag)
 		first_m->next = NULL;
 		first_m->last = last_m;
 		last_m->next = first_m;
-		if (flag == 0)
-			printf("ra\n");
-		if (flag == 1)
-			printf("rb\n");
+		flag = 0;			//delete quand remise des flags 
+		//if (flag == 0)
+		//	printf("ra\n");
+		//if (flag == 1)
+		//	printf("rb\n");
 	}
 	else
 		ft_sa_sb(stack, flag);
@@ -107,10 +110,11 @@ int	ft_rra_rrb(t_list **stack, int flag)
 		last_m->last = NULL;
 		last_m->next = first_m;
 		first_m->last = last_m;
-		if (flag == 0)
-			printf("rra\n");
-		if (flag == 1)
-			printf("rrb\n");
+		flag = 0;					//delete quand remise des flags
+		//if (flag == 0)
+		//	printf("rra\n");
+		//if (flag == 1)
+		//	printf("rrb\n");
 	}
 	else
 		ft_sa_sb(stack, flag);
