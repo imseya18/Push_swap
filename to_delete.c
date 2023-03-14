@@ -4,6 +4,9 @@ void	read_list(t_list *start_a, t_list *start_b)
 {
 	t_list	*current = start_a;
 	t_list	*current_b = start_b;
+	int i;
+
+	i = 0;
 	ft_printf("\n\033[0;32m////--- STACK A ---\\\\\\\\ 			\033[0;32m////--- STACK B ---\\\\\\\\\n\n");
     while (current != NULL || current_b != NULL)
     {
@@ -31,6 +34,26 @@ void	read_list(t_list *start_a, t_list *start_b)
 			printf("\n");
 		if (current_b != NULL)
 			printf("\033[0;36mrank: \033[0;35m%d\033[0m\n", current_b->rank);
+		if (current)
+		{
+			printf("\033[0;36mbinary: \033");
+			while(i < 32)
+        		printf("\033[0;35m%d\033[0m", current->binary[i++]);
+			printf("	");
+			i = 0;
+		}
+		if (current == NULL)
+			printf("						");
+		if (current_b == NULL)
+			printf("\n");
+		if (current_b != NULL)
+		{
+			printf("\033[0;36mbinary: \033");
+			while(i < 32)
+					printf("\033[0;35m%d\033[0m", current_b->binary[i++]);
+			printf("\n");
+			i = 0;
+		}
 		if (current)
      		printf("\033[0;36mLast address: \033[0;33m%p\033[0m				", (void *)current->last);
 		if (current == NULL)

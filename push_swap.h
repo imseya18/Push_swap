@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/14 14:24:17 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:20:11 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,23 @@
 # define PUSH_SWAP_H
 
 # include	"./printf/ft_printf.h"
-# include	"./memory_manager_2/memory_manager.h"
 
 typedef struct s_list
 {
 	int				content;
 	int				rank;
+	int				*binary;
 	struct s_list	*next;
 	struct s_list	*last;
 }	t_list;
+
+typedef struct s_memng
+{
+	void			*mem;
+	int				type;
+	int				fd;
+	struct s_memng	*next;
+}	t_memng;
 
 // FONCTION LISTE 
 t_list	*ft_lstnew(int content);
@@ -62,6 +70,21 @@ void	sort_big_stack(t_list **start_a, t_list **start_b, int rank_size);
 void	sort_small_stack(t_list **start_a, t_list **start_b);
 int		ft_check_nbr(int nbr, int n);
 
+
+// TEST BINARY
+void	sort_big_stack_binary(t_list **start_a, t_list **start_b);
+
 // DELETE
 //void	read_list(t_list *start_a, t_list *start_b);
+
+// MEMORY MANAGER
+t_memng	**ft_head_lst(void);
+t_memng	*ft_memnew_manager(void *mem, int type, int fd);
+void	ft_memadd_back_manager(t_memng **lst, t_memng *new);
+int		ft_is_in_lst(void *mem);
+void	*ftm_malloc(size_t sz);
+void	ftm_free(void *mem);
+void	ftm_free_all(void);
+void	ftm_add_track(void *mem);
+void	ftm_rm_track(void *mem);
 #endif

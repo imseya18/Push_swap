@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   memory_manager_utils.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loculy <loculy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 20:17:35 by loculy            #+#    #+#             */
-/*   Updated: 2023/01/26 04:15:35 by loculy           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:20:16 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "memory_manager.h"
+#include "push_swap.h"
 
 t_memng	**ft_head_lst(void)
 {

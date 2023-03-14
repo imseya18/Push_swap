@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   memory_manager_2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loculy <loculy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 00:49:05 by loculy            #+#    #+#             */
-/*   Updated: 2023/01/26 04:14:41 by loculy           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:20:17 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "memory_manager.h"
+#include "push_swap.h"
 
 void	ftm_add_track(void *mem)
 {
