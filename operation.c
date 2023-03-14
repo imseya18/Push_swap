@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:13:17 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/13 17:29:56 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/14 15:18:08 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ int	ft_pa_pb(t_list **main, t_list **target, int flag)
 	else
 		*main = NULL;
 	ft_lstadd_front(target, first_m);
-	flag = 0;				//delete quand remise des flags
-	//if (flag == 0)
-	//	printf("pb\n");
-	//if (flag == 1)
-	//	printf("pa\n");
+	if (flag == 0)
+		ft_printf("pb\n");
+	if (flag == 1)
+		ft_printf("pa\n");
 	return (1);
 }
 
@@ -55,11 +54,10 @@ int	ft_sa_sb(t_list **stack, int flag)
 		third_m->last = first_m;
 	first_m->next = third_m;
 	*stack = second_m;
-	flag = 0;				//delete quand remise des flags
-	//if (flag == 0)
-	//	printf("sa\n");
-	//if (flag == 1)
-	//	printf("sb\n");
+	if (flag == 0)
+		ft_printf("sa\n");
+	if (flag == 1)
+		ft_printf("sb\n");
 	return (1);
 }
 
@@ -81,11 +79,10 @@ int	ft_ra_rb(t_list **stack, int flag)
 		first_m->next = NULL;
 		first_m->last = last_m;
 		last_m->next = first_m;
-		flag = 0;			//delete quand remise des flags 
-		//if (flag == 0)
-		//	printf("ra\n");
-		//if (flag == 1)
-		//	printf("rb\n");
+		if (flag == 0)
+			ft_printf("ra\n");
+		if (flag == 1)
+			ft_printf("rb\n");
 	}
 	else
 		ft_sa_sb(stack, flag);
@@ -110,11 +107,10 @@ int	ft_rra_rrb(t_list **stack, int flag)
 		last_m->last = NULL;
 		last_m->next = first_m;
 		first_m->last = last_m;
-		flag = 0;					//delete quand remise des flags
-		//if (flag == 0)
-		//	printf("rra\n");
-		//if (flag == 1)
-		//	printf("rrb\n");
+		if (flag == 0)
+			ft_printf("rra\n");
+		if (flag == 1)
+			ft_printf("rrb\n");
 	}
 	else
 		ft_sa_sb(stack, flag);

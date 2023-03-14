@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/13 17:29:46 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/14 15:18:55 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,10 @@ int	main(int argc, char **argv)
 			if (check_n_create(&start_a, ft_split(argv[i], ' ')) == 0)
 				ft_error();
 	ft_fill_tab(start_a);
-	read_list(start_a, start_b);
-	printf("\n\033[0;32m////--- AFTER ---\\\\\\\\ \n\n");
-	//ft_pa_pb(&start_a, &start_b, 0);
+	//read_list(start_a, start_b);
+	//printf("\n\033[0;32m////--- AFTER ---\\\\\\\\ \n\n");
 	ft_radix_sort(&start_a, &start_b);
-	read_list(start_a, start_b);
+	//read_list(start_a, start_b);
 	ftm_free_all();
 	exit (1);
 }
