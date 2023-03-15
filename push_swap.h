@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/15 16:41:18 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/15 18:01:33 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,15 @@ void	ft_fill_tab(t_list *start_a);
 // RADIX SORT
 void	ft_radix_sort(t_list **start_a, t_list **start_b);
 void	sort_big_stack(t_list **start_a, t_list **start_b, int rank_size);
-void	sort_small_stack(t_list **start_a, t_list **start_b);
+void	sort_small_stack(t_list **a);
 int		ft_check_nbr(int nbr, int n);
 int		ft_check_if_sort(t_list *start_a);
+
+// SORT FOR 5 
+void	sort_medium_stack(t_list **start_a, t_list **start_b);
+void	ft_medium_r_rotate(t_list **start_a, int size);
+void	ft_medium_rotate(t_list **start_a, int size);
+int		check_pos(t_list *start_a, int rank);
 
 // TEST BINARY
 void	sort_big_stack_binary(t_list **start_a, t_list **start_b);

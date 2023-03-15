@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:35:58 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/15 16:41:15 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/15 18:07:40 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ int	ft_lstsize(t_list *lst)
 	int	i;
 
 	i = 0;
+	if (lst == NULL)
+		return (0);
 	while (lst)
 	{
 		lst = lst->next;

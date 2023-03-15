@@ -6,17 +6,39 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:51:17 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/15 16:41:12 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/15 18:07:42 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_small_stack(t_list **start_a, t_list **start_b)
+void	sort_small_stack(t_list **a)
 {
-	start_b = 0;
-	if (ft_lstsize(*start_a) == 2)
-		ft_sa_sb(start_a, 0);
+	if (ft_lstsize(*a) == 2)
+		ft_sa_sb(a, 0);
+	if (ft_check_if_sort(*a) == 1)
+		return ;
+	if ((*a)->rank > (*a)->next->rank && (*a)->next->rank
+		< (*a)->next->next->rank && (*a)->rank < (*a)->next->next->rank)
+		ft_sa_sb(a, 0);
+	else if ((*a)->rank > (*a)->next->rank && (*a)->next->rank
+		> (*a)->next->next->rank)
+	{
+		ft_sa_sb(a, 0);
+		ft_rra_rrb(a, 0);
+	}
+	else if ((*a)->rank > (*a)->next->rank
+		&& (*a)->next->rank < (*a)->next->next->rank)
+		ft_ra_rb(a, 0);
+	else if ((*a)->rank < (*a)->next->rank && (*a)->next->rank
+		> (*a)->next->next->rank && (*a)->rank < (*a)->next->next->rank)
+	{
+		ft_sa_sb(a, 0);
+		ft_ra_rb(a, 0);
+	}
+	else if ((*a)->rank < (*a)->next->rank
+		&& (*a)->next->rank > (*a)->next->next->rank)
+		ft_rra_rrb(a, 0);
 }
 
 void	sort_push_to_a(t_list **start_b, t_list **start_a, int div, int flag)
@@ -84,7 +106,9 @@ void	sort_big_stack_binary(t_list **start_a, t_list **start_b)
 void	ft_radix_sort(t_list **start_a, t_list **start_b)
 {
 	if (ft_lstsize(*start_a) <= 3)
-		sort_small_stack(start_a, start_b);
+		sort_small_stack(start_a);
+	else if (ft_lstsize(*start_a) <= 10)
+		sort_medium_stack(start_a, start_b);
 	else
 		sort_big_stack_binary(start_a, start_b);
 }

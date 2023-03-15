@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:52:08 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/14 18:20:14 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/15 17:59:54 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(void)
 {
-	write(2 ,"Error\n", 6);
+	write(2, "Error\n", 6);
 	ftm_free_all();
 	exit (0);
 }

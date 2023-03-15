@@ -1,5 +1,5 @@
 NAME		:= push_swap
-CFLAGS		:= -Wextra -Wall -Werror
+CFLAGS		:= -Wextra -Wall -Werror -fsanitize=address -g
 FTPRINTF	:= ./printf
 
 LIBS	:= $(FTPRINTF)/libftprintf.a
@@ -13,7 +13,8 @@ SRCS	:= 	push_swap.c \
 			memory_manager_2.c \
 			memory_manager_utils.c \
 			memory_manager.c \
-			radix_sort_utils.c
+			radix_sort_utils.c \
+			sort_less_5.c
 OBJS	:= $(SRCS:.c=.o)
 CC 		= gcc $(CFLAGS)
 
