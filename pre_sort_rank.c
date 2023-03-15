@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pre_sort_rank.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seya <seya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:16:14 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/14 17:35:22 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/15 01:43:28 by seya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ int	*ft_quicksort(int *tab, int end, int start, int size)
 {
 	int	i;
 	int	j;
-	int	temp;
 
-	temp = 0;
 	i = start;
 	j = start;
 	if (start < end && j < size)

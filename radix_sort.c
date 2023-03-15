@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seya <seya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:51:17 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/14 18:20:08 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/15 02:06:17 by seya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 int ft_check_size(int nbr)
 {
 	int i;
@@ -41,6 +42,7 @@ void	sort_small_stack(t_list **start_a, t_list **start_b)
 	start_a = NULL;
 	start_b = NULL;
 }
+
 //void	sort_push_to_b(t_list **start_a, t_list **start_b, int div, int flag)
 //{
 //	int size;
@@ -165,9 +167,9 @@ void	sort_big_stack_binary(t_list **start_a, t_list **start_b)
 void	ft_radix_sort(t_list **start_a, t_list **start_b)
 {
 	int rank;
-	int rank_size;
+	//int rank_size;
 	rank = ft_lstsize(*start_a) - 1;
-	rank_size = ft_check_size(rank);
+	//rank_size = ft_check_size(rank);
 	if (rank <= 5)
 		sort_small_stack(start_a, start_b);
 	else

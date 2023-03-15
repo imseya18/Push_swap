@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seya <seya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 16:31:38 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/14 13:38:59 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/15 01:57:45 by seya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,7 @@ static char	**size_tab(char **tab, char const *str, char c)
 char	**ft_split(char const *str, char c)
 {	
 	char	**tab;
-	int		i;
-	int		size;
-	int		nb;
 
-	i = 0;
-	nb = 0;
-	size = 0;
 	if (str == 0)
 		return (0);
 	tab = malloc((count_word(str, c) + 1) * sizeof(str));

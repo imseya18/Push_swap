@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
+/*   By: seya <seya@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/14 18:20:10 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/15 01:55:03 by seya             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,10 @@ int	check_n_create(t_list **start_a, char **argv)
 		if (create_a_stack(start_a, ft_atoi(argv[i])) == 0)
 			return (0);
 	}
+	i = 0;
+	while (argv[i])
+		free(argv[i++]);
+	free(argv);
 	return (1);
 }
 
@@ -91,10 +95,10 @@ int	main(int argc, char **argv)
 			if (check_n_create(&start_a, ft_split(argv[i], ' ')) == 0)
 				ft_error();
 	ft_fill_tab(start_a);
-	//read_list(start_a, start_b);
+	read_list(start_a, start_b);
 	//printf("\n\033[0;32m////--- AFTER ---\\\\\\\\ \n\n");
 	ft_radix_sort(&start_a, &start_b);
-	//read_list(start_a, start_b);
+	read_list(start_a, start_b);
 	ftm_free_all();
 	exit (1);
 }
