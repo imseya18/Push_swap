@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seya <seya@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/15 01:55:03 by seya             ###   ########.fr       */
+/*   Updated: 2023/03/15 16:41:22 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,10 +95,11 @@ int	main(int argc, char **argv)
 			if (check_n_create(&start_a, ft_split(argv[i], ' ')) == 0)
 				ft_error();
 	ft_fill_tab(start_a);
-	read_list(start_a, start_b);
+	//read_list(start_a, start_b);
 	//printf("\n\033[0;32m////--- AFTER ---\\\\\\\\ \n\n");
-	ft_radix_sort(&start_a, &start_b);
-	read_list(start_a, start_b);
+	if (ft_check_if_sort(start_a) == 0)
+		ft_radix_sort(&start_a, &start_b);
+	//read_list(start_a, start_b);
 	ftm_free_all();
 	exit (1);
 }

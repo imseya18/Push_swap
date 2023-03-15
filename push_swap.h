@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/14 18:20:11 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/15 16:41:18 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int		ft_pa_pb(t_list **main, t_list **target, int flag);
 // FONCTION CREATION & CHECK LISTE
 int		ft_int_checker(long long a);
 int		check_n_create(t_list **start_a, char **argv);
-void	read_list(t_list *start, t_list *start_b);
 int		argv_checker(char *argv);
 int		create_a_stack(t_list **start, int a);
 
@@ -69,13 +68,14 @@ void	ft_radix_sort(t_list **start_a, t_list **start_b);
 void	sort_big_stack(t_list **start_a, t_list **start_b, int rank_size);
 void	sort_small_stack(t_list **start_a, t_list **start_b);
 int		ft_check_nbr(int nbr, int n);
-
+int		ft_check_if_sort(t_list *start_a);
 
 // TEST BINARY
 void	sort_big_stack_binary(t_list **start_a, t_list **start_b);
+int		*int_to_binary(unsigned int n);
 
-// DELETE
-//void	read_list(t_list *start_a, t_list *start_b);
+// DELETE !!!!!
+void	read_list(t_list *start_a, t_list *start_b);
 
 // MEMORY MANAGER
 t_memng	**ft_head_lst(void);

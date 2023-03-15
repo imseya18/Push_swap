@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pre_sort_rank.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seya <seya@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 14:16:14 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/15 01:43:28 by seya             ###   ########.fr       */
+/*   Updated: 2023/03/15 16:41:17 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,23 +46,23 @@ int	*ft_quicksort(int *tab, int end, int start, int size)
 	return (tab);
 }
 
-int *intToBinary(unsigned int n) 
+int	*int_to_binary(unsigned int n)
 {
-	int *binary;
-	int i;
+	int	*binary;
+	int	i;
 
 	i = -1;
 	binary = ftm_malloc(32 * sizeof(int));
 	while (++i < 32)
 		binary[i] = 0;
 	i = 31;
-	while (n > 0) 
+	while (n > 0)
 	{
-	   binary[i] += (n % 2);
-	   n /= 2;
-	   i--;
+		binary[i] += (n % 2);
+		n /= 2;
+		i--;
 	}
-	return binary;
+	return (binary);
 }
 
 void	ft_assign_rank(t_list *start_a, int *tab)
@@ -75,7 +75,7 @@ void	ft_assign_rank(t_list *start_a, int *tab)
 		while (tab[i] != start_a->content)
 			i++;
 		start_a->rank = i;
-		start_a->binary = intToBinary(start_a->rank);
+		start_a->binary = int_to_binary(start_a->rank);
 		i = 0;
 		start_a = start_a->next;
 	}
