@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 14:41:28 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/15 18:01:33 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/16 14:24:18 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		create_a_stack(t_list **start, int a);
 
 //	FONCTION ERROR
 void	ft_error(void);
+int		ft_free_split(char **argv);
 
 // PRE SORT & RANK
 void	ft_swap(int *a, int *b);

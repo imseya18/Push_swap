@@ -6,7 +6,7 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 17:04:32 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/15 18:07:31 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/16 14:24:03 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,13 @@ int	check_n_create(t_list **start_a, char **argv)
 	while (argv[++i])
 	{
 		if (argv_checker(argv[i]) == 0)
-			return (0);
+			return (ft_free_split(argv));
 		if (ft_int_checker(ft_atoi(argv[i])) == 0)
-			return (0);
+			return (ft_free_split(argv));
 		if (create_a_stack(start_a, ft_atoi(argv[i])) == 0)
-			return (0);
+			return (ft_free_split(argv));
 	}
-	i = 0;
-	while (argv[i])
-		free(argv[i++]);
-	free(argv);
+	ft_free_split(argv);
 	return (1);
 }
 

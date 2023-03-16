@@ -6,11 +6,22 @@
 /*   By: mmorue <mmorue@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:52:08 by mmorue            #+#    #+#             */
-/*   Updated: 2023/03/15 17:59:54 by mmorue           ###   ########.fr       */
+/*   Updated: 2023/03/16 14:24:01 by mmorue           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_free_split(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+		free(argv[i++]);
+	free(argv);
+	return (0);
+}
 
 void	ft_error(void)
 {
